@@ -36,7 +36,7 @@ const Menu: React.FC = () => {
 
     loadMenu();
   }, []);
-  
+
   if (loading) {
     return <p>Loading menu...</p>;
   }
@@ -46,16 +46,26 @@ const Menu: React.FC = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Menu</h1>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="min-h-screen bg-green-600 p-6">
+      <h1 className="text-3xl font-bold text-white text-center mb-6">Menu</h1>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {menuItems.map((item) => (
-          <MenuItem key={item.id} item={item} onAddToCart={() => dispatch
-            (addToCart(item))} />
+          <div key={item.id} className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-bold">{item.name}</h2>
+            <p className="text-lg">💰 {item.price} SEK</p>
+            <button 
+              onClick={() => dispatch(addToCart(item))} 
+              className="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+            >
+              Add to Cart
+            </button>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
+
 export default Menu;
+
