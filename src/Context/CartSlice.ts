@@ -19,12 +19,13 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'>>) => {
+    // Update this reducer to accept a CartItem with the quantity property
+    addToCart: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find((item) => item.id === action.payload.id);
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += action.payload.quantity;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push(action.payload);
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
@@ -33,8 +34,6 @@ const cartSlice = createSlice({
   },
 });
 
-// Export the actions och
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
-// Export the reducer,double export,double the points baby  ?
 export default cartSlice.reducer;

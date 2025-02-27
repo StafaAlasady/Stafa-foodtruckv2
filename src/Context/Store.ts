@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './CartSlice';
+import { foodtruckApi } from '../Api/ProjectApi';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     cart: cartReducer,
+    [foodtruckApi.reducerPath]: foodtruckApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(foodtruckApi.middleware),
 });
 
-// Define the RootState type
 export type RootState = ReturnType<typeof store.getState>;
-
-// Define the AppDispatch type
-export type AppDispatch = typeof store.dispatch;
+export default store;

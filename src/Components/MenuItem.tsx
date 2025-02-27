@@ -1,10 +1,11 @@
 import React from 'react';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   item: {
     id: number;
     name: string;
     price: number;
+    quantity: number;
   };
   onAddToCart: () => void;
 }
