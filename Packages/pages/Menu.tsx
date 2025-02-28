@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useGetMenuQuery } from '../Api/ProjectApi';
-import { addToCart } from '../Context/CartSlice';
-import { setMenu, MenuItem } from '../Context/MenuSlice';
-import backgroundImage from '../assets/black-thread--light--1920x1080.png';
+import { useGetMenuQuery } from '../core/API/ProjectApi';
+import { addToCart } from '../core/reducers/CartSlice';
+import { setMenu, MenuItem } from '../core/reducers/MenuSlice';
+import backgroundImage from '../pages/UI/Assets/black-thread--light--1920x1080.png';
 
 const Menu: React.FC = () => {
   const dispatch = useDispatch();

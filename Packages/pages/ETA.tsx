@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import backgroundImage from "../assets/black-thread--light--1920x1080.png";
-import { useGetOrderByIdQuery } from "../Api/ProjectApi";
+import backgroundImage from "../pages/UI/Assets/black-thread--light--1920x1080.png";
+import { useGetOrderByIdQuery } from "../core/API/ProjectApi";
 
 const ETA: React.FC = () => {
   const { orderId } = useParams();

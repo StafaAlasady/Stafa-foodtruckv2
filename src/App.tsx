@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import Receipt from './Pages/Receipt';
-import Cart from './Pages/Cart';
-import Menu from './Pages/Menu';
-import Navbar from './Components/Navbar';
+import Receipt from '../Packages/pages/Receipt';
+import Cart from '../Packages/pages/Cart';
+import Menu from '../Packages/pages/Menu';
+import Navbar from '../Packages/base/Components/Navbar';
 import { Provider } from 'react-redux';
-import store from './Context/Store';
-import ETA from './Pages/ETA';
+import store from '../Packages/core/store/Store';
+import ETA from '../Packages/pages/ETA';
 
 const App: React.FC = () => {
   return (

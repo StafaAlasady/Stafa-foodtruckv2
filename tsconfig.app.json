@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "Packages/pages/Receipt.tsx", "Packages/core/API/ProjectApi.ts", "Packages/core/reducers/MenuSlice.tsx", "Packages/core/reducers/CartSlice.ts", "Packages/base/MenuItem.tsx", "Packages/base/CartItem.tsx", "Packages/base/Components/Navbar.tsx"]
 }

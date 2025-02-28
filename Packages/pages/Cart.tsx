@@ -1,11 +1,11 @@
 import React from 'react';
-import CartItem from '../Components/CartItem';
+import CartItem from '../base/CartItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../Context/Store';
-import { removeFromCart, clearCart } from '../Context/CartSlice';
+import { RootState } from '../core/store/Store';
+import { removeFromCart, clearCart } from '../core/reducers/CartSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import backgroundImage from '../assets/black-thread--light--1920x1080.png';
-import { usePlaceOrderMutation } from '../Api/ProjectApi';
+import backgroundImage from '../pages/UI/Assets/black-thread--light--1920x1080.png';
+import { usePlaceOrderMutation } from '../core/API/ProjectApi';
 
 const Cart: React.FC = () => {
   const cart = useSelector((state: RootState) => state.cart.items);

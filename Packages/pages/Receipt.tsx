@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import backgroundImage from '../assets/black-thread--light--1920x1080.png';
+import backgroundImage from '../pages/UI/Assets/black-thread--light--1920x1080.png';
 
 const Receipt: React.FC = () => {
   const { orderId } = useParams();

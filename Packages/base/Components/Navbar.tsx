@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../Context/Store';
+import { RootState } from '../../core/store/Store';
 import { ShoppingBag } from 'lucide-react';
 
 const Navbar: React.FC = () => {
