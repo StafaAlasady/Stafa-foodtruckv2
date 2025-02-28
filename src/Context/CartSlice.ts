@@ -5,6 +5,9 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  type?: string;
+  description?: string;
+  ingredients?: string[];
 }
 
 interface CartState {
@@ -22,17 +25,18 @@ const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find((item) => item.id === action.payload.id);
       if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
+        // If the item already exists, increment its quantity
+        existingItem.quantity += 1;
       } else {
-        state.items.push(action.payload);
+        // If the item doesn't exist, add it to the cart with a quantity of 1
+        state.items.push({ ...action.payload, quantity: 1 });
       }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
-    // Add clearCart action to reset the cart
     clearCart: (state) => {
-      state.items = []; // Resets the cart to an empty array
+      state.items = [];
     },
   },
 });

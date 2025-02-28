@@ -6,6 +6,9 @@ export interface MenuItemProps {
     name: string;
     price: number;
     quantity: number;
+    type?: string; 
+    description?: string;
+    ingredients?: string[];
   };
   onAddToCart: () => void;
 }

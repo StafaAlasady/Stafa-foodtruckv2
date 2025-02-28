@@ -3,7 +3,6 @@ const API_KEY = 'yum-toeJ8M4AzH5F1cFK';
 const BASE_URL = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/';
 const TENANT_NAME = 'KingVon';
 
-// Base query configuration for fetch requests
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers) => {
@@ -13,13 +12,12 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-
-// Define the API service
+ 
 export const foodtruckApi = createApi({
   reducerPath: 'foodtruckApi',
   baseQuery,
   endpoints: (builder) => ({
-    // POST /keys: Authenticate or register a key
+
     postKey: builder.mutation<any, { name: string }>({
       query: (data) => ({
         url: '/keys',
@@ -28,7 +26,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // POST /tenants: Register a tenant
+  
     postTenant: builder.mutation<any, { name: string }>({
       query: (data) => ({
         url: '/tenants',
@@ -37,7 +35,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // GET /menu: Fetch all menu items
+
     getMenu: builder.query<any, void>({
       query: () => ({
         url: '/menu',
@@ -45,7 +43,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // GET /menu/{id}: Fetch a specific menu item by ID
+
     getMenuItemById: builder.query<any, { id: string }>({
       query: ({ id }) => ({
         url: `/menu/${id}`,
@@ -53,7 +51,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // POST /{tenant}/orders: Place an order for a tenant
+
     placeOrder: builder.mutation<any, { items: any[] }>({
       query: ({ items }) => ({
         url: `/${TENANT_NAME}/orders`,
@@ -62,7 +60,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // GET /{tenant}/orders: Fetch all orders for a tenant
+
     getOrders: builder.query<any, void>({
       query: () => ({
         url: `/${TENANT_NAME}/orders`,
@@ -70,7 +68,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // GET /{tenant}/{id}: Fetch a specific order by ID for a tenant
+
     getOrderById: builder.query<any, { id: string }>({
       query: ({ id }) => ({
         url: `/${TENANT_NAME}/orders/${id}`,
@@ -78,7 +76,7 @@ export const foodtruckApi = createApi({
       }),
     }),
 
-    // GET /receipts/{id}: Fetch receipt details by ID
+
     getReceiptById: builder.query<any, { id: string }>({
       query: ({ id }) => ({
         url: `/receipts/${id}`,
@@ -88,7 +86,7 @@ export const foodtruckApi = createApi({
   }),
 });
 
-// Export the hooks for using in components
+
 export const {
   usePostKeyMutation,
   usePostTenantMutation,

@@ -5,6 +5,9 @@ export interface MenuItem {
     name: string;
     price: number;
     quantity: number;
+    type?: string;
+    description?: string;
+    ingredients?: string[];
   }
 
   interface MenuState {
