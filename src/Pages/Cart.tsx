@@ -16,36 +16,29 @@ const Cart: React.FC = () => {
   const [placeOrder] = usePlaceOrderMutation();
 
   const handleOrder = async () => {
-    if (cart.length === 0) return; // Ensure the cart is not empty
+    if (cart.length === 0) return;
   
-    // Transform the cart data to match the backend's expected structure
-    const itemIds = cart.map(item => item.id); // Extract only the item IDs
+    const itemIds = cart.map(item => item.id);
   
-    // Log the transformed data for debugging
     console.log('Transformed cart data (item IDs):', JSON.stringify(itemIds, null, 2));
   
     try {
-      // Send the transformed cart data to the backend
       const response = await placeOrder({ items: itemIds }).unwrap();
   
-      // Log the full response for debugging
       console.log('Full response from placeOrder:', response);
   
-      // Extract the order ID from the response
-      const { order } = response; // Extract the `order` object
+      const { order } = response;
       if (!order) {
         throw new Error('Order object is missing in the response');
       }
   
-      const { id } = order; // Extract the `id` from the `order` object
+      const { id } = order;
       if (!id) {
         throw new Error('Order ID is missing in the response');
       }
   
-      // Clear the cart after the order is placed successfully
       dispatch(clearCart());
   
-      // Navigate to ETA page with the actual orderId returned from the API
       navigate(`/eta/${id}`);
     } catch (err) {
       console.error('Error placing order:', err);

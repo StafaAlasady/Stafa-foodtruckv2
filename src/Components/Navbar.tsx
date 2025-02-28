@@ -7,16 +7,13 @@ import { ShoppingBag } from 'lucide-react';
 const Navbar: React.FC = () => {
   const cart = useSelector((state: RootState) => state.cart.items);
   
-  // Calculate total quantity across all items
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   
   return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 bg-white shadow-md">
-      {/* Logo (Left) */}
       <div className="text-2xl font-bold">
-        <Link to="/">🍔 Stafa Foodtruck</Link> {/* Added an emoji for branding */}
+        <Link to="/">🍔 Stafa Foodtruck</Link>
       </div>
-      {/* Cart Icon (Right) */}
       <Link to="/cart" className="relative">
         <ShoppingBag size={28} strokeWidth={2} />
         {totalQuantity > 0 && (

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useGetMenuQuery } from '../Api/ProjectApi';  // Assuming you're using this to fetch menu items
+import { useGetMenuQuery } from '../Api/ProjectApi';
 import { addToCart } from '../Context/CartSlice';
 import { setMenu, MenuItem } from '../Context/MenuSlice';
 import backgroundImage from '../assets/black-thread--light--1920x1080.png';

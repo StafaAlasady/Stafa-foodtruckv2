@@ -7,16 +7,12 @@ const Receipt: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Debugging: Log the location state
   console.log("Location state:", location.state);
 
-  // Retrieve the order details directly from the location state
   const orderDetails = location.state;
 
-  // Debugging: Log the order details
   console.log("Order details:", orderDetails);
 
-  // Handle missing or invalid order details
   if (!orderDetails || orderDetails.id !== orderId) {
     return (
       <div 
@@ -37,7 +33,6 @@ const Receipt: React.FC = () => {
     );
   }
 
-  // Calculate MOMS and total with MOMS
   const total = orderDetails.orderValue || 0;
   const moms = total * 0.25;
   const totalWithMoms = total + moms;
@@ -63,7 +58,6 @@ const Receipt: React.FC = () => {
           </ul>
         </div>
 
-        {/* MOMS and Total Price */}
         <div className="mt-6 text-lg">
           <p><strong>Subtotal:</strong> ${total.toFixed(2)}</p>
           <p><strong>MOMS (25%):</strong> ${moms.toFixed(2)}</p>
